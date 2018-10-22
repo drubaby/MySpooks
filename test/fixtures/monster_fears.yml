@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monster_id: 1
+  spook_id: 1
+
+two:
+  monster_id: 1
+  spook_id: 1
