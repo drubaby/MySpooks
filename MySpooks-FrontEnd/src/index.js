@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
   console.log('DOM loaded')
 
-  let monsterForm = document.querySelector(".add-monster-form")
-  monsterForm.addEventListener('submit', createMonster)
-
   getSpooksFetch()
   getMonstersFetch()
+
+  let monsterForm = document.querySelector(".add-monster-form")
+  monsterForm.addEventListener('submit', createSpook)
 })
 
 
@@ -17,11 +17,69 @@ function getSpooksFetch() {
   })
 }
 
+function createSpook(event){
+  event.preventDefault()
+  let form = document.querySelector(".add-monster-form")
+  let select = form.querySelector('.monster-fears')
+  //
+  // let monsterName = form.name.value
+  // let monsterImgURL = form.img_url.value
+  // let monsterFear = []
+  //
+  // let selectedFears = Array.from(select.options).filter(option => option.selected)
+  // selectedFears.forEach(fear => monsterFear.push(parseInt(fear.id)))
+  //
+  // console.log(monsterFear)
+  // let monsterData = {
+  //   name: monsterName,
+  //   img_url: monsterImgURL
+  // }
+// first: POST the new spook
+  let newSpookName = form.spook.value
+  fetch('http://localhost:3000/spooks/', {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      name: newSpookName
+    })
+  }).then(res => res.json())
+  .then(spookObj => {console.log(spookObj)
+    createMonster(spookObj)
+  })
+}
+
+function createMonster(spookObj) {
+  console.log("In create monster function")
+  let spookId = spookObj.id
+  let form = document.querySelector(".add-monster-form")
+
+  let monsterName = form.name.value
+  let monsterImgURL = form.img_url.value
+
+  let data = {
+    name: monsterName,
+    img_url: monsterImgURL,
+    spook_id: spookId
+  }
+
+  fetch("http://localhost:3000/monsters", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(data)
+  }).then(res => res.json())
+  .then(monster => {
+    render(monster)
+  })
+  }
+
+
+
+
 function makeMenu(spook) {
   let fearsMenu = document.querySelector(".monster-fears")
 
   let option = document.createElement("option")
-  option.setAttribute("value", spook.name)
+  option.setAttribute("id", spook.id)
   option.innerText = spook.name
   fearsMenu.appendChild(option)
 }
@@ -49,6 +107,7 @@ function render(monster) {
 
   let img = document.createElement("img")
   img.setAttribute("src", monster.img_url)
+  img.className = "monster-img"
   div.appendChild(img)
 
   let h5 = document.createElement("h5")
