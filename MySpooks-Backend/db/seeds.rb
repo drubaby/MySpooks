@@ -20,11 +20,7 @@ Monster.create(name: "Gremlin", img_url: "https://assets.catawiki.nl/assets/2017
 Monster.create(name: "Snuggles", img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSmRe1x-TPVjRbtEARsxDGDjJ9EykK1dW-GrPViuaIQXaCw1WeBA", spook_id: 7)
 Monster.create(name: "Skellington", img_url: "https://i1.sndcdn.com/artworks-000190178047-l26yen-t500x500.jpg", spook_id: 8)
 Monster.create(name: "David Pumpkins", img_url: "https://media.tenor.com/images/303963bcad65e27493c919c1c5b89472/tenor.png", spook_id:9)
-Monster.create(name:  , img_url:  , spook_id: )
-
-
-
-
+Monster.create(name: "Slithery Snake", img_url: "https://horrorfreaknews.com/wp-content/uploads/2017/03/442dd460c489fe8eb1dac765f98d51f8.jpg", spook_id: 10)
 
 
 MonsterFear.create(monster_id: 1, spook_id: 2)
