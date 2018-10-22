@@ -1,0 +1,2131 @@
+  [1m[35m (312.0ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (277.6ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6083582194779577530)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateMonsters (20181022145602)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145602_create_monsters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145602"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateSpooks (20181022145626)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145626_create_spooks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145626"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMonsterFears (20181022145838)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145838_create_monster_fears.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145838"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 17:22:33.684055"], ["updated_at", "2018-10-22 17:22:33.684055"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6083582194779577530)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mSpook Create (0.9ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Blood Drinking"], ["created_at", "2018-10-22 17:22:37.810020"], ["updated_at", "2018-10-22 17:22:37.810020"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mSpook Create (0.5ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Holy Water"], ["created_at", "2018-10-22 17:22:37.816918"], ["updated_at", "2018-10-22 17:22:37.816918"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mMonster Create (0.8ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Dracula"], ["img_url", ""], ["spook_id", 1], ["created_at", "2018-10-22 17:22:37.880368"], ["updated_at", "2018-10-22 17:22:37.880368"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mMonsterFear Create (1.0ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 1], ["spook_id", 2], ["created_at", "2018-10-22 17:22:37.915311"], ["updated_at", "2018-10-22 17:22:37.915311"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+Started GET "/" for 127.0.0.1 at 2018-10-22 13:23:02 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (9.9ms)
+Completed 200 OK in 31ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-10-22 13:23:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:23:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/monsters"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:25:58 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for MonstersController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:27:12 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:27:18 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-22 13:27:30 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (6.2ms)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:27:33 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:27:36 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-22 13:27:50 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (15.3ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/monsteres" for 127.0.0.1 at 2018-10-22 13:27:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/monsteres"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:27:56 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:01 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:09 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:13 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:19 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-22 13:28:27 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (7.7ms)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:35 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-22 13:28:45 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (5.6ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:28:53 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monster/1" for 127.0.0.1 at 2018-10-22 13:29:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/monster/1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:29:33 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monster/1" for 127.0.0.1 at 2018-10-22 13:30:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/monster/1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:30:18 -0400
+Processing by MonstersController#index as HTML
+Completed 204 No Content in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:34:47 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.19ms)
+Completed 200 OK in 66ms (Views: 40.6ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/monsters/1" for 127.0.0.1 at 2018-10-22 13:34:58 -0400
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMonster Load (0.9ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers] Rendered MonsterSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 10ms (Views: 3.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/spooks" for 127.0.0.1 at 2018-10-22 13:35:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/spooks"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/spooks" for 127.0.0.1 at 2018-10-22 13:35:39 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/spooks"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/spooks" for 127.0.0.1 at 2018-10-22 13:36:04 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.91ms)
+Completed 200 OK in 53ms (Views: 15.1ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/spooks/2" for 127.0.0.1 at 2018-10-22 13:36:08 -0400
+Processing by SpooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spooks_controller.rb:7
+[active_model_serializers] Rendered SpookSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:36:10 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (136.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (128.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (272.6ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (257.3ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6083582194779577530)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateMonsters (20181022145602)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145602_create_monsters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145602"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateSpooks (20181022145626)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145626_create_spooks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145626"]]
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMonsterFears (20181022145838)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181022145838_create_monster_fears.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181022145838"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 17:39:40.599266"], ["updated_at", "2018-10-22 17:39:40.599266"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6083582194779577530)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mSpook Create (1.1ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Blood Drinking"], ["created_at", "2018-10-22 17:39:45.541863"], ["updated_at", "2018-10-22 17:39:45.541863"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mSpook Create (0.4ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Holy Water"], ["created_at", "2018-10-22 17:39:45.546583"], ["updated_at", "2018-10-22 17:39:45.546583"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSpook Create (0.5ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spidey Senses"], ["created_at", "2018-10-22 17:39:45.553862"], ["updated_at", "2018-10-22 17:39:45.553862"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mMonster Create (0.7ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Dracula"], ["img_url", ""], ["spook_id", 1], ["created_at", "2018-10-22 17:39:45.605352"], ["updated_at", "2018-10-22 17:39:45.605352"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mMonster Create (0.5ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Scary nun"], ["spook_id", 2], ["created_at", "2018-10-22 17:39:45.612117"], ["updated_at", "2018-10-22 17:39:45.612117"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mMonster Create (0.5ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Giant Spider"], ["spook_id", 3], ["created_at", "2018-10-22 17:39:45.618364"], ["updated_at", "2018-10-22 17:39:45.618364"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mMonster Load (0.4ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mMonsterFear Create (0.8ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 1], ["spook_id", 2], ["created_at", "2018-10-22 17:39:45.649721"], ["updated_at", "2018-10-22 17:39:45.649721"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mMonster Load (0.3ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mMonsterFear Create (0.4ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 2], ["spook_id", 3], ["created_at", "2018-10-22 17:39:45.658977"], ["updated_at", "2018-10-22 17:39:45.658977"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mMonster Load (0.3ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mMonsterFear Create (0.4ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 3], ["spook_id", 1], ["created_at", "2018-10-22 17:39:45.665698"], ["updated_at", "2018-10-22 17:39:45.665698"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:40:38 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/spooks"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:40:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/spooks"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:41:01 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 33ms (Views: 17.1ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:41:05 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (3.9ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 39ms (Views: 13.7ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:41:34 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (1.9ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:42:30 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:43:30 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (1.2ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.22ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:44:02 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 28ms (Views: 9.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:44:10 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.6ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.16ms)
+Completed 200 OK in 89ms (Views: 75.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/monsters/1" for 127.0.0.1 at 2018-10-22 13:44:37 -0400
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers] Rendered MonsterSerializer with ActiveModelSerializers::Adapter::Attributes (3.94ms)
+Completed 200 OK in 11ms (Views: 4.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/monsters/1" for 127.0.0.1 at 2018-10-22 13:45:28 -0400
+Processing by MonstersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:8
+[active_model_serializers] Rendered MonsterSerializer with ActiveModelSerializers::Adapter::Attributes (69.24ms)
+Completed 200 OK in 99ms (Views: 65.9ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:45:50 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.72ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:45:55 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.82ms)
+Completed 200 OK in 41ms (Views: 35.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 13:53:36 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 25ms (Views: 9.3ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:53:43 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (1.1ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (46.78ms)
+Completed 200 OK in 94ms (Views: 69.8ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 13:59:26 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.63ms)
+Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:05:53 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.9ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.85ms)
+Completed 200 OK in 25ms (Views: 19.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:08:48 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (5.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.9ms)
+Completed 200 OK in 42ms (Views: 31.3ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:12:09 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.6ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.42ms)
+Completed 200 OK in 38ms (Views: 33.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:12:23 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (1.1ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (115.07ms)
+Completed 200 OK in 227ms (Views: 172.7ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:12:26 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.1ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.71ms)
+Completed 200 OK in 37ms (Views: 27.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:14:42 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.71ms)
+Completed 200 OK in 37ms (Views: 29.2ms | ActiveRecord: 6.8ms)
+
+
+  [1m[36mMonster Load (0.9ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1 LIMIT $2[0m  [["monster_id", 1], ["LIMIT", 11]]
+  [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMonster Load (1.2ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" INNER JOIN "monster_fears" ON "monsters"."id" = "monster_fears"."monster_id" WHERE "monster_fears"."spook_id" = $1 LIMIT $2[0m  [["spook_id", 1], ["LIMIT", 11]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (5042.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (151.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (136.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_test"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (383.0ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (259.2ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (3.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (2.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 18:31:38.190077"], ["updated_at", "2018-10-22 18:31:38.190077"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 18:31:38.314951"], ["updated_at", "2018-10-22 18:31:38.314951"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-10-22 18:31:38.321351"], ["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (130.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (130.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_test"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (268.0ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (265.8ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 18:33:35.839229"], ["updated_at", "2018-10-22 18:33:35.839229"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 18:33:35.964937"], ["updated_at", "2018-10-22 18:33:35.964937"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-10-22 18:33:35.971355"], ["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mSpook Create (1.6ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Blood Drinking"], ["created_at", "2018-10-22 18:33:36.043325"], ["updated_at", "2018-10-22 18:33:36.043325"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mSpook Create (0.7ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Holy Water"], ["created_at", "2018-10-22 18:33:36.050348"], ["updated_at", "2018-10-22 18:33:36.050348"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSpook Create (0.5ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spidey Senses"], ["created_at", "2018-10-22 18:33:36.055988"], ["updated_at", "2018-10-22 18:33:36.055988"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mMonster Create (0.9ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Dracula"], ["img_url", ""], ["spook_id", 1], ["created_at", "2018-10-22 18:33:36.110279"], ["updated_at", "2018-10-22 18:33:36.110279"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mMonster Create (0.4ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Scary nun"], ["spook_id", 2], ["created_at", "2018-10-22 18:33:36.117622"], ["updated_at", "2018-10-22 18:33:36.117622"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mMonster Create (0.4ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Giant Spider"], ["spook_id", 3], ["created_at", "2018-10-22 18:33:36.126295"], ["updated_at", "2018-10-22 18:33:36.126295"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mMonster Load (1.3ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mMonsterFear Create (0.9ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 1], ["spook_id", 2], ["created_at", "2018-10-22 18:33:36.158904"], ["updated_at", "2018-10-22 18:33:36.158904"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mMonster Load (0.4ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mMonsterFear Create (0.5ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 2], ["spook_id", 3], ["created_at", "2018-10-22 18:33:36.168372"], ["updated_at", "2018-10-22 18:33:36.168372"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mMonster Load (0.3ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mMonsterFear Create (0.4ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 3], ["spook_id", 1], ["created_at", "2018-10-22 18:33:36.175853"], ["updated_at", "2018-10-22 18:33:36.175853"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMonster Load (0.4ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."spook_id" = $1 LIMIT $2[0m  [["spook_id", 1], ["LIMIT", 1]]
+  [1m[36mMonster Load (1.1ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" INNER JOIN "monster_fears" ON "monsters"."id" = "monster_fears"."monster_id" WHERE "monster_fears"."spook_id" = $1 LIMIT $2[0m  [["spook_id", 1], ["LIMIT", 11]]
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1 LIMIT $2[0m  [["monster_id", 1], ["LIMIT", 11]]
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:45:37 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (127.61ms)
+Completed 200 OK in 237ms (Views: 186.6ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:45:40 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:46:11 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.47ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 12.2ms)
+
+
+  
+NoMethodError (undefined method `spook' for #<Spook:0x007fba1d01f6d8>):
+  
+app/controllers/spooks_controller.rb:3:in `index'
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:46:33 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 33ms (Views: 12.9ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:48:33 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:48:40 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.78ms)
+Completed 200 OK in 71ms (Views: 48.3ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:51:02 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.6ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.58ms)
+Completed 200 OK in 34ms (Views: 27.7ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:53:01 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:53:33 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (1.1ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.36ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:53:42 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spooks/1" for 127.0.0.1 at 2018-10-22 14:53:45 -0400
+Processing by SpooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/spooks_controller.rb:7
+[active_model_serializers] Rendered SpookSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:53:49 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.6ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.56ms)
+Completed 200 OK in 27ms (Views: 22.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 14:54:36 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:59:38 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (2.0ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.51ms)
+Completed 200 OK in 38ms (Views: 28.6ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 14:59:44 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.9ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (3.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (3.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.84ms)
+Completed 200 OK in 48ms (Views: 34.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:01:57 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (2.1ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.2ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.61ms)
+Completed 200 OK in 40ms (Views: 29.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:02:15 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.2ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (3.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.14ms)
+Completed 200 OK in 42ms (Views: 32.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:03:03 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.8ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.03ms)
+Completed 200 OK in 31ms (Views: 25.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:04:11 -0400
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.9ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.27ms)
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:05:05 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.79ms)
+Completed 200 OK in 30ms (Views: 22.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:05:20 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.58ms)
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:05:44 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.81ms)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 3.2ms)
+
+
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (150.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (142.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_test"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (390.1ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (262.2ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (3.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 19:09:59.991425"], ["updated_at", "2018-10-22 19:09:59.991425"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 19:10:00.123291"], ["updated_at", "2018-10-22 19:10:00.123291"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-10-22 19:10:00.129090"], ["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (131.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_development"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (133.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MySpooks_test"[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (277.1ms)[0m  [1m[35mCREATE DATABASE "MySpooks_development" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (260.0ms)[0m  [1m[35mCREATE DATABASE "MySpooks_test" ENCODING = 'unicode'[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 19:10:19.156154"], ["updated_at", "2018-10-22 19:10:19.156154"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "monster_fears" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "monster_fears" ("id" bigserial primary key, "monster_id" integer, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "monsters" CASCADE[0m
+  ↳ db/schema.rb:25
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "monsters" ("id" bigserial primary key, "name" character varying, "img_url" character varying, "spook_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "spooks" CASCADE[0m
+  ↳ db/schema.rb:33
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "spooks" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:33
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181022145838)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181022145602),
+(20181022145626);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-22 19:10:19.314005"], ["updated_at", "2018-10-22 19:10:19.314005"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-10-22 19:10:19.323495"], ["key", "environment"]]
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mSpook Create (1.3ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Blood Drinking"], ["created_at", "2018-10-22 19:10:19.444971"], ["updated_at", "2018-10-22 19:10:19.444971"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mSpook Create (0.6ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Holy Water"], ["created_at", "2018-10-22 19:10:19.453334"], ["updated_at", "2018-10-22 19:10:19.453334"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSpook Create (0.7ms)[0m  [1m[32mINSERT INTO "spooks" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spidey Senses"], ["created_at", "2018-10-22 19:10:19.459224"], ["updated_at", "2018-10-22 19:10:19.459224"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mMonster Create (1.1ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Dracula"], ["img_url", "https://i5.walmartimages.com/asr/9f20b6c2-5dba-40f0-9c5c-86a5f680ec12_1.6e726ae79f76c679a13442c50596799b.jpeg?odnBg=ffffff"], ["spook_id", 1], ["created_at", "2018-10-22 19:10:19.525705"], ["updated_at", "2018-10-22 19:10:19.525705"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mMonster Create (0.7ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scary nun"], ["img_url", "https://i.ebayimg.com/images/g/SFMAAOSwzF1Z0tSl/s-l300.jpg"], ["spook_id", 2], ["created_at", "2018-10-22 19:10:19.535293"], ["updated_at", "2018-10-22 19:10:19.535293"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mMonster Create (0.6ms)[0m  [1m[32mINSERT INTO "monsters" ("name", "img_url", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Giant Spider"], ["img_url", "https://coddeschimbare.files.wordpress.com/2014/09/10633440_706820582719643_3851334158261552976_o.jpg"], ["spook_id", 3], ["created_at", "2018-10-22 19:10:19.543663"], ["updated_at", "2018-10-22 19:10:19.543663"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mMonsterFear Create (1.1ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 1], ["spook_id", 2], ["created_at", "2018-10-22 19:10:19.584421"], ["updated_at", "2018-10-22 19:10:19.584421"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mMonsterFear Create (0.6ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 2], ["spook_id", 3], ["created_at", "2018-10-22 19:10:19.596050"], ["updated_at", "2018-10-22 19:10:19.596050"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT  "monsters".* FROM "monsters" WHERE "monsters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mMonsterFear Create (0.6ms)[0m  [1m[32mINSERT INTO "monster_fears" ("monster_id", "spook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["monster_id", 3], ["spook_id", 1], ["created_at", "2018-10-22 19:10:19.606331"], ["updated_at", "2018-10-22 19:10:19.606331"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:10:34 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/isabellepino/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by MonstersController#index as HTML
+  [1m[36mMonster Load (0.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (97.94ms)
+Completed 200 OK in 198ms (Views: 167.6ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:10:37 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.7ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (5.2ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.63ms)
+Completed 200 OK in 46ms (Views: 31.4ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:11:54 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (32.77ms)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:16:12 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (0.9ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.2ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.55ms)
+Completed 200 OK in 39ms (Views: 31.7ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:17:23 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.1ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (3.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (68.99ms)
+Completed 200 OK in 77ms (Views: 67.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:19:15 -0400
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (1.5ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (48.87ms)
+Completed 200 OK in 56ms (Views: 46.4ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 15:22:22 -0400
+Processing by SpooksController#index as HTML
+  [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 15:23:43 -0400
+Processing by SpooksController#index as */*
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:23:43 -0400
+  [1m[36mSpook Load (8.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.91ms)
+Completed 200 OK in 13ms (Views: 4.3ms | ActiveRecord: 8.1ms)
+
+
+Processing by MonstersController#index as */*
+  [1m[36mMonster Load (2.2ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.69ms)
+Completed 200 OK in 44ms (Views: 36.0ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:24:55 -0400
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 15:24:55 -0400
+Processing by SpooksController#index as */*
+Processing by MonstersController#index as */*
+  [1m[36mSpook Load (3.1ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.26ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 3.1ms)
+
+
+  [1m[36mMonster Load (5.9ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.2ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.0ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.3ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.8ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (45.41ms)
+Completed 200 OK in 55ms (Views: 38.9ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 15:25:55 -0400
+Processing by SpooksController#index as */*
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:25:55 -0400
+  [1m[36mSpook Load (2.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+Processing by MonstersController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 2.3ms)
+
+
+  [1m[36mMonster Load (3.6ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.3ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.4ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.5ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.7ms)
+Completed 200 OK in 38ms (Views: 31.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/spooks/" for 127.0.0.1 at 2018-10-22 15:26:24 -0400
+Processing by SpooksController#index as */*
+Started GET "/monsters" for 127.0.0.1 at 2018-10-22 15:26:24 -0400
+  [1m[36mSpook Load (2.2ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks"[0m
+  ↳ app/controllers/spooks_controller.rb:3
+Processing by MonstersController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 2.2ms)
+
+
+  [1m[36mMonster Load (4.3ms)[0m  [1m[34mSELECT "monsters".* FROM "monsters"[0m
+  ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.5ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (1.2ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.6ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.9ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 2]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (2.8ms)[0m  [1m[34mSELECT  "spooks".* FROM "spooks" WHERE "spooks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers]   [1m[36mSpook Load (0.7ms)[0m  [1m[34mSELECT "spooks".* FROM "spooks" INNER JOIN "monster_fears" ON "spooks"."id" = "monster_fears"."spook_id" WHERE "monster_fears"."monster_id" = $1[0m  [["monster_id", 3]]
+[active_model_serializers]   ↳ app/controllers/monsters_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (56.22ms)
+Completed 200 OK in 66ms (Views: 51.2ms | ActiveRecord: 14.1ms)
+
+
