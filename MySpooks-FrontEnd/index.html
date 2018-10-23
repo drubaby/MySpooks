@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>MySpooks</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <script type="text/javascript" src="src/index.js"></script>
     <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
 <h1>MySpooks</h1>
-<div class="monster-form">
+<button id="new-monster-btn">Add a new monster!</button>
+<div class="monster-form-container">
   <form class="add-monster-form" style = "">
     <h3>Create a monster!</h3>
-    <input type="text" name="name" value="" placeholder="Enter a monster's name...">
-    <input type="text" name="img_url" value="" placeholder="Enter a monster's image URL...">
-    <input type="text" name="spook" value="" placeholder="Enter a monster's spooky ability...">
+    <input type="text" name="name" value="" placeholder="Enter a monster's name..."> <br>
+    <input type="text" name="img_url" value="" placeholder="Enter a monster's image URL..."> <br>
+    <input type="text" name="spook" value="" placeholder="Enter a monster's spooky ability..."> <br>
     What is your monster's fear:
     <select class="monster-fears" multiple> </select>
     <input type="submit" name="submit" value="Create New Monster" class="submit">

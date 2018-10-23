@@ -1,13 +1,30 @@
+let addMonster = false
+
 document.addEventListener("DOMContentLoaded", function() {
   console.log('DOM loaded')
 
   getSpooksFetch()
   getMonstersFetch()
 
-  let monsterForm = document.querySelector(".add-monster-form")
-  monsterForm.addEventListener('submit', createSpook)
+  let monsterFormContainer = document.querySelector(".monster-form-container")
+  monsterFormContainer.setAttribute("style", "display: none;")
+
+  let newMonsterBtn = document.querySelector("#new-monster-btn")
+  newMonsterBtn.addEventListener('click', getMonsterForm)
 })
 
+function getMonsterForm(event) {
+  console.log("inside get monster form")
+  addMonster = !addMonster
+  let monsterFormContainer = document.querySelector(".monster-form-container")
+  if (addMonster) {
+    monsterFormContainer.style.display = 'block'
+    let addMonsterForm = document.querySelector(".add-monster-form")
+    addMonsterForm.addEventListener('submit', createSpook)
+  } else {
+    monsterFormContainer.style.display = 'none'
+  }
+}
 
 function getSpooksFetch() {
   fetch('http://localhost:3000/spooks/')
@@ -108,30 +125,50 @@ function render(monster) {
   let container = document.querySelector(".monster-container")
 
   let div = document.createElement("div")
-  div.className = "card"
+  div.className = "monster-card"
   div.id = `monster-${monster.id}`
-  // div.dataset.monsterCardId = monster.id
   container.appendChild(div)
 
+//monster name
   let h3 = document.createElement("h3")
   h3.innerText = monster.name
   div.appendChild(h3)
 
+//number of scares button
   let counterDiv = document.createElement("div")
+  div.appendChild(counterDiv)
+
+  let numberOfScaresSpan = document.createElement("span")
+  numberOfScaresSpan.className = "scares-span"
+  let timesFrightenedSpan = document.createElement("span")
+  timesFrightenedSpan.className = "fears-span"
+  counterDiv.appendChild(numberOfScaresSpan)
+  counterDiv.appendChild(timesFrightenedSpan)
+
   let numberOfScares = document.createElement("button")
   numberOfScares.innerText = "0"
   numberOfScares.id = monster.id
   numberOfScares.className = "number-of-scares"
-  counterDiv.appendChild(numberOfScares)
+  numberOfScaresSpan.appendChild(numberOfScares)
 
+  let p = document.createElement("p")
+  p.innerText = "Number of Scares"
+  numberOfScaresSpan.appendChild(p)
+
+//times frightened button
   let timesFrightened = document.createElement("button")
   timesFrightened.innerText = "0"
   timesFrightened.id = monster.id
   timesFrightened.className = "times-frightened"
-  counterDiv.appendChild(timesFrightened)
+  timesFrightenedSpan.appendChild(timesFrightened)
 
-  div.appendChild(counterDiv)
+  let p2 = document.createElement("p")
+  p2.innerText = "Times Frightened"
+  timesFrightenedSpan.appendChild(p2)
 
+
+
+//hidden fears in span tags
   let hiddenFearDiv = document.createElement("div")
   hiddenFearDiv.className = "hidden_fears"
   div.appendChild(hiddenFearDiv)
@@ -143,17 +180,19 @@ function render(monster) {
     hiddenFearDiv.appendChild(fearSpan)
   })
 
-
+//image
   let img = document.createElement("img")
   img.setAttribute("src", monster.img_url)
   img.className = "monster-img"
   div.appendChild(img)
 
+//monster spookability
   let h5 = document.createElement("h5")
   h5.innerText = monster.spook.name
   h5.id = monster.spook.id
   div.appendChild(h5)
 
+//spook the room button
   let buttonDiv = document.createElement("div")
   div.appendChild(buttonDiv)
   let spookBtn = document.createElement("button")
@@ -161,18 +200,13 @@ function render(monster) {
   spookBtn.id = monster.spook.id
   spookBtn.addEventListener("click", spookBtnHandler)
   buttonDiv.appendChild(spookBtn)
-  // get monster spook ability ID
-  // go through all monster's fears on page
-  //    light up scared monster cards
-  //    increment this monster's scare score counter
-  //    increment scared monsters frightened score counters
 
+//banish a monster button
   let deleteBtn = document.createElement("button")
   deleteBtn.id = monster.id
   deleteBtn.innerText = "Banish Monster"
   deleteBtn.addEventListener("click", deleteBtnHandler)
   buttonDiv.appendChild(deleteBtn)
-  // debugger
 }
 
 function deleteBtnHandler(e) {
@@ -192,7 +226,7 @@ function deleteBtnHandler(e) {
 
 function spookBtnHandler(e) {
   spookId = e.currentTarget.id
-  
+
   let spookerCard = e.currentTarget.parentElement.parentElement
   let scareCount = spookerCard.querySelector(".number-of-scares")
   // let scareText = scareCount.innerText
@@ -205,7 +239,7 @@ function spookBtnHandler(e) {
       }
       else {
         let unspookedCard = span.parentElement.parentElement
-        unspookedCard.className = "card"
+        unspookedCard.className = "monster-card"
       }
       // TODO: toggle all cards white before spooking new cards
     })

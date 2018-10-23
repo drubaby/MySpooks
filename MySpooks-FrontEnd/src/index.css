@@ -1,4 +1,4 @@
-.card {
+.monster-card {
   text-align: center;
   border: grey solid 1px;
   padding: 1rem;
@@ -9,10 +9,31 @@
   box-shadow: 3px 4px #e04b52
 }
 
-.card h3{
+.monster-card h3{
   margin-top: 0px;
   margin-bottom: 0px;
+  font-size: 25px;
 }
+
+.number-of-scares {
+  float: left;
+}
+
+.times-frightened{
+  float: right;
+}
+
+.scares-span{
+  float: left;
+  width: 50%;
+}
+
+.fears-span{
+  float: right;
+  width: 50%;
+}
+
+
 
 .spooked-card {
   text-align: center;
