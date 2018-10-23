@@ -104,6 +104,7 @@ function getMonstersFetch() {
 }
 
 function render(monster) {
+
   let container = document.querySelector(".monster-container")
 
   let div = document.createElement("div")
@@ -115,6 +116,21 @@ function render(monster) {
   let h3 = document.createElement("h3")
   h3.innerText = monster.name
   div.appendChild(h3)
+
+  let counterDiv = document.createElement("div")
+  let numberOfScares = document.createElement("button")
+  numberOfScares.innerText = "0"
+  numberOfScares.id = monster.id
+  numberOfScares.className = "number-of-scares"
+  counterDiv.appendChild(numberOfScares)
+
+  let timesFrightened = document.createElement("button")
+  timesFrightened.innerText = "0"
+  timesFrightened.id = monster.id
+  timesFrightened.className = "times-frightened"
+  counterDiv.appendChild(timesFrightened)
+
+  div.appendChild(counterDiv)
 
   let hiddenFearDiv = document.createElement("div")
   hiddenFearDiv.className = "hidden_fears"
@@ -138,11 +154,13 @@ function render(monster) {
   h5.id = monster.spook.id
   div.appendChild(h5)
 
+  let buttonDiv = document.createElement("div")
+  div.appendChild(buttonDiv)
   let spookBtn = document.createElement("button")
   spookBtn.innerText = "Spook the Room"
   spookBtn.id = monster.spook.id
   spookBtn.addEventListener("click", spookBtnHandler)
-  div.appendChild(spookBtn)
+  buttonDiv.appendChild(spookBtn)
   // get monster spook ability ID
   // go through all monster's fears on page
   //    light up scared monster cards
@@ -153,7 +171,7 @@ function render(monster) {
   deleteBtn.id = monster.id
   deleteBtn.innerText = "Banish Monster"
   deleteBtn.addEventListener("click", deleteBtnHandler)
-  div.appendChild(deleteBtn)
+  buttonDiv.appendChild(deleteBtn)
   // debugger
 }
 
@@ -174,10 +192,15 @@ function deleteBtnHandler(e) {
 
 function spookBtnHandler(e) {
   spookId = e.currentTarget.id
+  
+  let spookerCard = e.currentTarget.parentElement.parentElement
+  let scareCount = spookerCard.querySelector(".number-of-scares")
+  // let scareText = scareCount.innerText
   // TODO: increment current target's scare count by number of spooks below
   document.querySelectorAll('span').forEach(span => {
 	   if (span.id === spookId){
 	      console.log("i am spooked")
+        scareCount.innerText = parseInt(scareCount.innerText) + 1
         toggleSpooked(span)
       }
       else {
@@ -192,8 +215,6 @@ function spookBtnHandler(e) {
 function toggleSpooked(span) {
   let spookedCard = span.parentElement.parentElement
   spookedCard.className = "spooked-card"
-  // increment frightened count
-  // turn card yellow
-
-  // debugger
+  let frightCount = spookedCard.querySelector(".times-frightened")
+  frightCount.innerText = parseInt(frightCount.innerText) + 1
 }

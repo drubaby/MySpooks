@@ -9,6 +9,11 @@
   box-shadow: 3px 4px #e04b52
 }
 
+.card h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .spooked-card {
   text-align: center;
   border: grey solid 1px;
