@@ -21,19 +21,7 @@ function createSpook(event){
   event.preventDefault()
   let form = document.querySelector(".add-monster-form")
   let select = form.querySelector('.monster-fears')
-  //
-  // let monsterName = form.name.value
-  // let monsterImgURL = form.img_url.value
-  // let monsterFear = []
-  //
-  // let selectedFears = Array.from(select.options).filter(option => option.selected)
-  // selectedFears.forEach(fear => monsterFear.push(parseInt(fear.id)))
-  //
-  // console.log(monsterFear)
-  // let monsterData = {
-  //   name: monsterName,
-  //   img_url: monsterImgURL
-  // }
+
 // first: POST the new spook
   let newSpookName = form.spook.value
   fetch('http://localhost:3000/spooks/', {
@@ -43,42 +31,64 @@ function createSpook(event){
       name: newSpookName
     })
   }).then(res => res.json())
-  .then(spookObj => {console.log(spookObj)
+  .then(spookObj => {
     createMonster(spookObj)
   })
 }
 
+// second: POST new monster with spook ID
 function createMonster(spookObj) {
-  console.log("In create monster function")
   let spookId = spookObj.id
   let form = document.querySelector(".add-monster-form")
-
   let monsterName = form.name.value
   let monsterImgURL = form.img_url.value
-
   let data = {
     name: monsterName,
     img_url: monsterImgURL,
     spook_id: spookId
   }
-
   fetch("http://localhost:3000/monsters", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(data)
   }).then(res => res.json())
   .then(monster => {
+    //post new monsterFear
+    postMonsterFear(monster)
+    // then render monster card
     render(monster)
   })
   }
 
+// third: POST new monsterFear
+function postMonsterFear(monster) {
+  let form = document.querySelector(".add-monster-form")
+  let select = form.querySelector('.monster-fears')
+  let monsterFear = []
 
+  let selectedFears = Array.from(select.options).filter(option => option.selected)
+  selectedFears.forEach(fear => monsterFear.push(parseInt(fear.id)))
+  let monsterId = monster.id
 
+  monsterFear.forEach(fear => {
+    let data = {
+      monster_id: monsterId,
+      spook_id: fear
+    }
+    fetch("http://localhost:3000/monster_fears", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(monsterFear => console.log(monsterFear))
+    }
+  )
+}
 
 function makeMenu(spook) {
   let fearsMenu = document.querySelector(".monster-fears")
-
   let option = document.createElement("option")
+
   option.setAttribute("id", spook.id)
   option.innerText = spook.name
   fearsMenu.appendChild(option)
@@ -98,12 +108,25 @@ function render(monster) {
 
   let div = document.createElement("div")
   div.className = "card"
-  div.id = monster.id
+  div.id = `monster-${monster.id}`
+  // div.dataset.monsterCardId = monster.id
   container.appendChild(div)
 
   let h3 = document.createElement("h3")
   h3.innerText = monster.name
   div.appendChild(h3)
+
+  let hiddenFearDiv = document.createElement("div")
+  hiddenFearDiv.className = "hidden_fears"
+  div.appendChild(hiddenFearDiv)
+  // loop through monster.spooks and add spans to hidden div
+  monster.spooks.forEach(fear => {
+    // debugger
+    let fearSpan = document.createElement('span')
+    fearSpan.id = fear.id
+    hiddenFearDiv.appendChild(fearSpan)
+  })
+
 
   let img = document.createElement("img")
   img.setAttribute("src", monster.img_url)
@@ -112,6 +135,65 @@ function render(monster) {
 
   let h5 = document.createElement("h5")
   h5.innerText = monster.spook.name
+  h5.id = monster.spook.id
   div.appendChild(h5)
 
+  let spookBtn = document.createElement("button")
+  spookBtn.innerText = "Spook the Room"
+  spookBtn.id = monster.spook.id
+  spookBtn.addEventListener("click", spookBtnHandler)
+  div.appendChild(spookBtn)
+  // get monster spook ability ID
+  // go through all monster's fears on page
+  //    light up scared monster cards
+  //    increment this monster's scare score counter
+  //    increment scared monsters frightened score counters
+
+  let deleteBtn = document.createElement("button")
+  deleteBtn.id = monster.id
+  deleteBtn.innerText = "Banish Monster"
+  deleteBtn.addEventListener("click", deleteBtnHandler)
+  div.appendChild(deleteBtn)
+  // debugger
+}
+
+function deleteBtnHandler(e) {
+  let monsterId = e.currentTarget.id
+  let spookId = e.currentTarget.parentElement.querySelector(`h5`).id
+  //remove monster from db and DOM
+  fetch(`http://localhost:3000/monsters/${monsterId}`, {
+    method: "DELETE"
+  }).then(res => {
+    document.getElementById(`monster-${monsterId}`).remove()
+  })
+  //remove spook from db
+  fetch(`http://localhost:3000/spooks/${spookId}`, {
+    method: "DELETE"
+  }).then(res => console.log(res))
+}
+
+function spookBtnHandler(e) {
+  spookId = e.currentTarget.id
+  // TODO: increment current target's scare count by number of spooks below
+  document.querySelectorAll('span').forEach(span => {
+	   if (span.id === spookId){
+	      console.log("i am spooked")
+        toggleSpooked(span)
+      }
+      else {
+        let unspookedCard = span.parentElement.parentElement
+        unspookedCard.className = "card"
+      }
+      // TODO: toggle all cards white before spooking new cards
+    })
+
+}
+
+function toggleSpooked(span) {
+  let spookedCard = span.parentElement.parentElement
+  spookedCard.className = "spooked-card"
+  // increment frightened count
+  // turn card yellow
+
+  // debugger
 }

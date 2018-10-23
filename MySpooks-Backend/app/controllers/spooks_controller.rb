@@ -11,10 +11,14 @@ class SpooksController < ApplicationController
       render json: Spook.create(spook_params)
   end
 
+  def destroy
+    render json: Spook.find(params[:id]).destroy
+  end
+
   private
   def spook_params
     params.require(:spook).permit(:name)
   end
 
-  
+
 end
