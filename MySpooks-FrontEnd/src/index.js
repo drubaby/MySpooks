@@ -72,8 +72,7 @@ function createMonster(spookObj) {
   .then(monster => {
     //post new monsterFear
     postMonsterFear(monster)
-    // then render monster card
-    render(monster)
+    // render(monster)
   })
   }
 
@@ -86,15 +85,15 @@ function postMonsterFear(monster) {
   let selectedFears = Array.from(select.options).filter(option => option.selected)
   selectedFears.forEach(fear => monsterFear.push(parseInt(fear.id)))
   let monsterId = monster.id
-  //
-  // let fearsRange = select.options.length
-  // let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
-  //
-  // if (monsterFear[0] === randomFear) {
-  //   let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
-  // } else {
-  //   monsterFear.push(randomFear)
-  // }
+
+  let fearsRange = select.options.length
+  let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
+
+  if (monsterFear[0] === randomFear) {
+    let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
+  } else {
+    monsterFear.push(randomFear)
+  }
 
   monsterFear.forEach(fear => {
     let data = {
@@ -106,7 +105,15 @@ function postMonsterFear(monster) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     }).then(res => res.json())
-    .then(monsterFear => console.log(monsterFear))
+    .then(monsterFear => {
+      let id = monsterFear.monster_id
+        fetch(`http://localhost:3000/monsters/${id}`)
+          .then(res => res.json())
+          .then(monster => {
+            render(monster)
+            console.log(monster)
+          })
+        })
     }
   )
 }
@@ -119,7 +126,6 @@ function makeMenu(spook) {
   option.innerText = spook.name
   fearsMenu.appendChild(option)
 }
-
 
 function getMonstersFetch() {
   fetch('http://localhost:3000/monsters')
@@ -236,6 +242,7 @@ function deleteBtnHandler(e) {
 }
 
 function spookBtnHandler(e) {
+  playScarySound()
   spookId = e.currentTarget.id
 
   let spookerCard = e.currentTarget.parentElement.parentElement
@@ -252,10 +259,13 @@ function spookBtnHandler(e) {
         let unspookedCard = span.parentElement.parentElement
         unspookedCard.className = "monster-card"
       }
-      // TODO: toggle all cards white before spooking new cards
     })
-
 }
+
+  function playScarySound() {
+    var sound = new Audio("/Users/drubles/Development/code/mod3/MySpooks/MySpooks-FrontEnd/src/scream.wav")
+    sound.play()
+  }
 
 function toggleSpooked(span) {
   let spookedCard = span.parentElement.parentElement

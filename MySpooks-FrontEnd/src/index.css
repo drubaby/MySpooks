@@ -1,3 +1,8 @@
+body {
+   background-image: url("background.jpg");
+   background-color: #cccccc;
+}
+
 .monster-card {
   text-align: center;
   border: grey solid 1px;
@@ -6,13 +11,19 @@
   height: 25rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px #e04b52
+  /* box-shadow: 3px 4px #e04b52; */
+  box-shadow: 3px 4px rgb(255, 162, 22);
+  background-color: rgb(165, 187, 208);
 }
 
 .monster-card h3{
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 25px;
+}
+
+.header {
+  background-color: rgb(242,242,242)
 }
 
 .number-of-scares {
@@ -33,7 +44,9 @@
   width: 50%;
 }
 
-
+.monster-form-container {
+  background-color: rgb(242,242,242);
+}
 
 .spooked-card {
   text-align: center;
@@ -44,6 +57,8 @@
   display: inline-grid;
   margin: 1rem 2rem;
   box-shadow: 0px 0px 20px 20px #FFD700;
+  background-color: rgb(165, 187, 208);
+  /* background-image: url('cardback.jpg') */
 }
 
 .monster-img {
