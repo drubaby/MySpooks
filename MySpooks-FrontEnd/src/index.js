@@ -86,6 +86,15 @@ function postMonsterFear(monster) {
   let selectedFears = Array.from(select.options).filter(option => option.selected)
   selectedFears.forEach(fear => monsterFear.push(parseInt(fear.id)))
   let monsterId = monster.id
+  //
+  // let fearsRange = select.options.length
+  // let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
+  //
+  // if (monsterFear[0] === randomFear) {
+  //   let randomFear = Math.floor(Math.random()*(fearsRange - 0) + 0)
+  // } else {
+  //   monsterFear.push(randomFear)
+  // }
 
   monsterFear.forEach(fear => {
     let data = {
@@ -204,6 +213,7 @@ function render(monster) {
 //banish a monster button
   let deleteBtn = document.createElement("button")
   deleteBtn.id = monster.id
+  deleteBtn.dataset.spookId = monster.spook.id
   deleteBtn.innerText = "Banish Monster"
   deleteBtn.addEventListener("click", deleteBtnHandler)
   buttonDiv.appendChild(deleteBtn)
@@ -211,7 +221,7 @@ function render(monster) {
 
 function deleteBtnHandler(e) {
   let monsterId = e.currentTarget.id
-  let spookId = e.currentTarget.parentElement.querySelector(`h5`).id
+  let spookId = e.currentTarget.dataset.spookId
   //remove monster from db and DOM
   fetch(`http://localhost:3000/monsters/${monsterId}`, {
     method: "DELETE"
@@ -219,9 +229,10 @@ function deleteBtnHandler(e) {
     document.getElementById(`monster-${monsterId}`).remove()
   })
   //remove spook from db
-  fetch(`http://localhost:3000/spooks/${spookId}`, {
-    method: "DELETE"
-  }).then(res => console.log(res))
+  // BUG: breaks conditional rendering for monsters that fear this spook
+  // fetch(`http://localhost:3000/spooks/${spookId}`, {
+  //   method: "DELETE"
+  // }).then(res => console.log(res))
 }
 
 function spookBtnHandler(e) {
