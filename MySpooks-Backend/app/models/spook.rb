@@ -4,4 +4,5 @@ class Spook < ApplicationRecord
   has_many :monsters, through: :monster_fears
 
   validates :name, presence: true
+
 end

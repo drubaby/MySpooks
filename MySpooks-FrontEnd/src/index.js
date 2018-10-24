@@ -13,6 +13,23 @@ document.addEventListener("DOMContentLoaded", function() {
   newMonsterBtn.addEventListener('click', getMonsterForm)
 })
 
+// Fetch all spook objects to make menu on form
+function getSpooksFetch() {
+  fetch('http://localhost:3000/spooks/')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(spook => makeMenu(spook))
+  })
+}
+
+function getMonstersFetch() {
+  fetch('http://localhost:3000/monsters')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(monster => render(monster))
+  })
+}
+
 // Toggle form appearance on DOM
 function getMonsterForm(event) {
   addMonster = !addMonster
@@ -26,28 +43,33 @@ function getMonsterForm(event) {
   }
 }
 
-// Fetch all spook objects to make menu on form
-function getSpooksFetch() {
-  fetch('http://localhost:3000/spooks/')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(spook => makeMenu(spook))
-  })
-}
-
 function makeMenu(spook) {
   let fearsMenu = document.querySelector(".monster-fears")
   let option = document.createElement("option")
-
   option.setAttribute("id", spook.id)
   option.innerText = spook.name
   fearsMenu.appendChild(option)
 }
 
-function createSpook(event){
-  event.preventDefault()
+// Experimenting with JS form validation
+
+function validateForm(){
   let form = document.querySelector(".add-monster-form")
-  let select = form.querySelector('.monster-fears')
+  let nameValue = form.name.value;
+  let newSpookName = form.spook.value
+  if (nameValue == "") {
+    alert("Name must be filled out");
+    console.log("no name")
+    return false;
+  }
+  else if (newSpookName == "") {
+    alert("New monsters must have a spook ability!");
+    console.log("no spook was entered")
+    return false;
+  }
+  console.log("Finished validating")
+  return true
+}
 
 
 ///////////////////////////////////////////////////////
@@ -55,6 +77,16 @@ function createSpook(event){
 //   Functions invoked by form submit
 //
 // first: POST the new spook
+function createSpook(event){
+  event.preventDefault()
+  if (!validateForm()){
+    return
+  }
+  // if !(validateForm())
+  //   {return}
+  //   else{}
+  let form = document.querySelector(".add-monster-form")
+  let select = form.querySelector('.monster-fears')
   let newSpookName = form.spook.value
   fetch('http://localhost:3000/spooks/', {
     method: "POST",
@@ -73,6 +105,13 @@ function createMonster(spookObj) {
   let form = document.querySelector(".add-monster-form")
   let monsterName = form.name.value
   let monsterImgURL = form.img_url.value
+
+  // Assign default profile pic if no url
+  if (monsterImgURL == "") {
+    console.log('assigning default profile pic')
+    monsterImgURL = 'src/profile.jpg'
+  }
+
   let data = {
     name: monsterName,
     img_url: monsterImgURL,
@@ -86,7 +125,6 @@ function createMonster(spookObj) {
   .then(monster => {
     //post new monsterFear
     postMonsterFear(monster)
-    // render(monster)
   })
   }
 // third: POST new monsterFear and assign random MonsterFear
@@ -119,29 +157,29 @@ function postMonsterFear(monster) {
       body: JSON.stringify(data)
     }).then(res => res.json())
     .then(monsterFear => {
-      let id = monsterFear.monster_id
-      fetch(`http://localhost:3000/monsters/${id}`)
-        .then(res => res.json())
-        .then(monster => {
-          render(monster)
-          console.log(monster) //debugging: verify that 2 fears added
-        })
+      console.log(monsterFear)
     })
   })
+  renderFinalMonster(monster)
 }
+
+  function renderFinalMonster(monster){
+    // debugger
+    fetch(`http://localhost:3000/monsters/${monster.id}`)
+    .then(res => res.json())
+    .then(monster => {
+      render(monster)
+      console.log(`my fears are ${monster.spooks}`)
+    })
+  }
+
 // end of form submit functions
 /////////////////////////////////////////////////
 
-function getMonstersFetch() {
-  fetch('http://localhost:3000/monsters')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(monster => render(monster))
-  })
-}
 
 
 function render(monster) {
+  // debugger
   let container = document.querySelector(".monster-container")
 
   let div = document.createElement("div")
@@ -249,6 +287,9 @@ function deleteBtnHandler(e) {
 // Called by "Spook the Room" button
 function spookBtnHandler(e) {
   playScarySound()
+  document.querySelectorAll('span').forEach(span => {
+    span.parentElement.parentElement.className = 'monster-card'
+  })
   spookId = e.currentTarget.id
   let spookerCard = e.currentTarget.parentElement.parentElement
   let scareCount = spookerCard.querySelector(".number-of-scares")
@@ -259,15 +300,17 @@ function spookBtnHandler(e) {
       scareCount.innerText = parseInt(scareCount.innerText) + 1
       toggleSpooked(span)
     }
-    else {
-      // Reset all other cards to unspooked
-      let unspookedCard = span.parentElement.parentElement
-      unspookedCard.className = "monster-card"
-    }
+    // else {
+    //   // Reset all other cards to unspooked
+    //   let unspookedCard = span.parentElement.parentElement
+    //   unspookedCard.className = "monster-card"
+    // }
   })
 }
 // Called by spookBtnHandler
 function toggleSpooked(span) {
+  console.log(span)
+  debugger
   let spookedCard = span.parentElement.parentElement
   spookedCard.className = "spooked-card"
   let frightCount = spookedCard.querySelector(".times-frightened")
