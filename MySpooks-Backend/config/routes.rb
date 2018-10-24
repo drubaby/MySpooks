@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :monsters
   resources :spooks, except: [:update]
   resources :monster_fears, except: [:update, :destroy]
+  post "/create_entire_monster", to: "monsters#create_entire_monster"
 end

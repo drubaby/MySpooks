@@ -21,12 +21,36 @@ class MonstersController < ApplicationController
     render json: Monster.find(params[:id]).destroy
   end
 
+  def create_entire_monster
+    # pull monster params
+    new_name = params[:name]
+    new_img_url = params[:img_url]
+    # pull spook params
+    spook_id = Spook.find_or_create_by(name: params[:spook]).id
+    # pull monster_fear params
+    monster_fear_id = MonsterFear.find(params[:fear]).id
+    rand_fear_id = MonsterFear.all.sample.id
+    fear_array = [monster_fear_id, rand_fear_id]
+
+    # byebug
+    new_monst = Monster.create(name: new_name, img_url: new_img_url, spook_id: spook_id)
+
+    monster_id = new_monst.id
+    mf1 = MonsterFear.create(monster_id: monster_id, spook_id: monster_fear_id)
+    mf2 = MonsterFear.create(monster_id: monster_id, spook_id: rand_fear_id)
+    # debugger
+
+    render json: new_monst
+  end
+
   private
 
   def monster_params
     params.require(:monster).permit(:name, :img_url, :spook_id)
   end
 
-
+  def spook_params
+    params.require(:spook).permit(:name)
+  end
 
 end
