@@ -115,20 +115,38 @@ function render(monster) {
 
   let container = document.querySelector(".monster-container")
 
-  let div = document.createElement("div")
-  div.className = "monster-card"
-  div.id = `monster-${monster.id}`
-  container.appendChild(div)
+  // Monster Card Div
+  let monsterCardDiv = document.createElement("div")
+  monsterCardDiv.className = "monster-card"
+  monsterCardDiv.id = `monster-${monster.id}`
+  container.appendChild(monsterCardDiv)
 
   // Monster name
   let h3 = document.createElement("h3")
   h3.innerText = monster.name
-  div.appendChild(h3)
+  monsterCardDiv.appendChild(h3)
 
+  //Wrapper div for BACK
+  let backDiv = document.createElement("div")
+  backDiv.className = "back-card"
+  backDiv.hidden = true
+  monsterCardDiv.appendChild(backDiv)
+
+  let fearsListDiv = document.createElement("div")
+  fearsListDiv.innerText = `Fears: ${monster.spooks[0].name} and ${monster.spooks[1].name}.`
+  backDiv.appendChild(fearsListDiv)
+
+  // Wrapper div for Front
+  let flippableDiv = document.createElement("div")
+  flippableDiv.className = "front-card"
+  monsterCardDiv.appendChild(flippableDiv)
+
+  // Front
   // # of scares and times frightened displayed on buttons in counterDiv
   let counterDiv = document.createElement("div")
-  div.appendChild(counterDiv)
+  flippableDiv.appendChild(counterDiv)
 
+  // Front
   // Two spans in counterDiv hold button and labels
   let numberOfScaresSpan = document.createElement("span")
   numberOfScaresSpan.className = "scares-span"
@@ -137,6 +155,7 @@ function render(monster) {
   counterDiv.appendChild(numberOfScaresSpan)
   counterDiv.appendChild(timesFrightenedSpan)
 
+  // Front
   // # of scares button displays score
   let numberOfScaresBtn = document.createElement("button")
   numberOfScaresBtn.innerText = "0"
@@ -148,6 +167,7 @@ function render(monster) {
   p.innerText = "Number of Scares"
   numberOfScaresSpan.appendChild(p)
 
+  // Front
   // Times frightened button displays frights
   let timesFrightened = document.createElement("button")
   timesFrightened.innerText = "0"
@@ -159,38 +179,45 @@ function render(monster) {
   p2.innerText = "Times Frightened"
   timesFrightenedSpan.appendChild(p2)
 
+  // Front???
   // "Hidden fears" holds MonsterFears in div
   let hiddenFearDiv = document.createElement("div")
   hiddenFearDiv.className = "hidden_fears"
-  div.appendChild(hiddenFearDiv)
+  flippableDiv.appendChild(hiddenFearDiv)
   // loop through monster.spooks and add spans to hidden div
   monster.spooks.forEach(fear => {
     let fearSpan = document.createElement('span')
     fearSpan.id = fear.id
+    fearSpan.className = fear.name
     hiddenFearDiv.appendChild(fearSpan)
   })
 
+  // Front
   // Image
   let img = document.createElement("img")
   img.setAttribute("src", monster.img_url)
   img.className = "monster-img"
-  div.appendChild(img)
+  flippableDiv.appendChild(img)
 
+  // Front
   // Monster spook-ability
-  let h5 = document.createElement("h5")
-  h5.innerText = monster.spook.name
-  h5.id = monster.spook.id
-  div.appendChild(h5)
+  let h6 = document.createElement("h6")
+  h6.innerText = monster.spook.name
+  h6.id = monster.spook.id
+  flippableDiv.appendChild(h6)
 
+  // Front
   // Spook the room button
   let buttonDiv = document.createElement("div")
-  div.appendChild(buttonDiv)
+  buttonDiv.id = "spook-banish-btns"
+  flippableDiv.appendChild(buttonDiv)
   let spookBtn = document.createElement("button")
   spookBtn.innerText = "Spook the Room"
   spookBtn.id = monster.spook.id
   spookBtn.addEventListener("click", spookBtnHandler)
   buttonDiv.appendChild(spookBtn)
 
+  // Front
  // Banish (delete) a monster button
   let deleteBtn = document.createElement("button")
   deleteBtn.id = monster.id
@@ -199,27 +226,16 @@ function render(monster) {
   deleteBtn.addEventListener("click", deleteBtnHandler)
   buttonDiv.appendChild(deleteBtn)
 
+  // Both Front and Back
   //flip card button
+  let flipBtnDiv = document.createElement("div")
+  flipBtnDiv.id = "flip-btn-div"
   let flipBtn = document.createElement("button")
   flipBtn.id = monster.id
   flipBtn.innerText = "Flip"
   flipBtn.addEventListener('click', flipBtnHandler)
-  buttonDiv.appendChild(flipBtn)
-}
-
-function flipBtnHandler(e) {
-  let monsterId = e.currentTarget.id
-  let monsterCard = document.querySelector(`#monster-${monsterId}`)
-  monsterCard.classList.add("flipped-card")
-    debugger
-  
-//flip function
-//get target id of that card
-// make card empty
-//refill card with what we want
-//make class .flipped-card to style
-  //background Image
-  //etc
+  flipBtnDiv.appendChild(flipBtn)
+  monsterCardDiv.appendChild(flipBtnDiv)
 }
 
 // Called by Banish Monster button
@@ -234,15 +250,54 @@ function deleteBtnHandler(e) {
   })
 }
 
+  // Called by Flip button on card
+function flipBtnHandler(e) {
+  let monsterCard = e.currentTarget.parentElement.parentElement
+  let frontCardDiv = monsterCard.querySelector(".front-card")
+  let backCardDiv = monsterCard.querySelector(".back-card")
+
+  if (monsterCard.className === "monster-card") {
+    monsterCard.className = "flipped-card"
+    frontCardDiv.setAttribute("hidden", "")
+    backCardDiv.removeAttribute("hidden")
+  }
+  else if (monsterCard.className === "monster-card spooked-card") {
+    monsterCard.className = "flipped-card spooked-card"
+    frontCardDiv.setAttribute("hidden", "")
+    backCardDiv.removeAttribute("hidden")
+  }
+  else if (monsterCard.className === "flipped-card spooked-card") {
+    monsterCard.className = "monster-card spooked-card"
+    frontCardDiv.removeAttribute("hidden")
+    backCardDiv.setAttribute("hidden", "")
+  }
+  else {
+    monsterCard.className = "monster-card"
+    frontCardDiv.removeAttribute("hidden")
+    backCardDiv.setAttribute("hidden", "")
+  }
+}
+
 // Called by "Spook the Room" button
 function spookBtnHandler(e) {
   playScarySound()
-  document.querySelectorAll('span').forEach(span => {
-    span.parentElement.parentElement.className = 'monster-card'
+  // set monster-card class name to 'monster-card' to reset previous spooks
+  document.querySelectorAll('.spooked-card').forEach(card => {
+
+      if (card.className === "monster-card spooked-card"){
+      card.className = "monster-card"
+      console.log(`${card.id} reset to monster-card`)
+      card.querySelector('.front-card').removeAttribute("hidden")
+      card.querySelector('.back-card').setAttribute("hidden", "")
+    } else if (card.className === "flipped-card spooked-card") {
+      card.className = "flipped-card"
+      console.log(`${card.id} reset to flipped-card`)
+    }
   })
   spookId = e.currentTarget.id
   let spookerCard = e.currentTarget.parentElement.parentElement
   let scareCount = spookerCard.querySelector(".number-of-scares")
+
   // Finds all hidden fears matching spooker's ability
   document.querySelectorAll('span').forEach(span => {
    if (span.id === spookId){
@@ -250,17 +305,13 @@ function spookBtnHandler(e) {
       scareCount.innerText = parseInt(scareCount.innerText) + 1
       toggleSpooked(span)
     }
-    // else {
-    //   // Reset all other cards to unspooked
-    //   let unspookedCard = span.parentElement.parentElement
-    //   unspookedCard.className = "monster-card"
-    // }
   })
 }
 // Called by spookBtnHandler
 function toggleSpooked(span) {
-  let spookedCard = span.parentElement.parentElement
-  spookedCard.className = "spooked-card"
+  // debugger
+  let spookedCard = span.parentElement.parentElement.parentElement
+  spookedCard.classList.add("spooked-card")
   let frightCount = spookedCard.querySelector(".times-frightened")
   frightCount.innerText = parseInt(frightCount.innerText) + 1
 }

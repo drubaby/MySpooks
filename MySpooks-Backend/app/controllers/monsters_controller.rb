@@ -32,8 +32,8 @@ class MonstersController < ApplicationController
     # pull spook params
     spook_id = Spook.find_or_create_by(name: params[:spook]).id
     # pull monster_fear params
-    monster_fear_id = MonsterFear.find(params[:fear]).id
-    rand_fear_id = MonsterFear.all.sample.id
+    monster_fear_id = Spook.find(params[:fear]).id
+    rand_fear_id = Spook.all.sample.id
     fear_array = [monster_fear_id, rand_fear_id]
 
     # byebug
