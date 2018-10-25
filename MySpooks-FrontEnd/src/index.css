@@ -22,6 +22,10 @@ body {
   font-size: 25px;
 }
 
+.flipped-card {
+  background-image: url("background.jpg")
+}
+
 .header {
   background-color: rgb(242,242,242)
 }
@@ -66,4 +70,8 @@ body {
   height: 12rem;
   width: 11rem;
   /* width: auto; */
+}
+
+.monster-container {
+  padding-top: 90px;
 }

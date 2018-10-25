@@ -18,6 +18,10 @@ class MonstersController < ApplicationController
   end
 
   def destroy
+    deleted_monster = Monster.find(params[:id])
+    deleted_monster.monster_fears.each do |fear|
+      fear.destroy
+    end
     render json: Monster.find(params[:id]).destroy
   end
 

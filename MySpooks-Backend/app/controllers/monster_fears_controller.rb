@@ -13,6 +13,10 @@ class MonsterFearsController < ApplicationController
     render json: MonsterFear.find(params[:id])
   end
 
+  def destroy
+    render json: MonsterFear.find(params[:id]).destroy
+  end
+
   private
 
   def monster_fear_params
