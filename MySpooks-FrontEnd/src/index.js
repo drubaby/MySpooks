@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
   let monsterSubmitBtn = document.querySelector(".add-monster-form")
   monsterSubmitBtn.addEventListener('submit', createEntireMonster)
 
+  let mostScaresBtn = document.querySelector("#mostScaresButton")
+  mostScaresBtn.addEventListener('click', mostScaresButtonhandler)
+
+  let mostFrightsBtn = document.querySelector("#mostFrightsButton")
+  mostFrightsBtn.addEventListener('click', mostFrightsButtonHandler)
+
 })
 
 // Fetch all spook objects to make menu on form
@@ -287,12 +293,12 @@ function spookBtnHandler(e) {
 
       if (card.className === "monster-card spooked-card"){
       card.className = "monster-card"
-      console.log(`${card.id} reset to monster-card`)
+      // console.log(`${card.id} reset to monster-card`)
       card.querySelector('.front-card').removeAttribute("hidden")
       card.querySelector('.back-card').setAttribute("hidden", "")
     } else if (card.className === "flipped-card spooked-card") {
       card.className = "flipped-card"
-      console.log(`${card.id} reset to flipped-card`)
+      // console.log(`${card.id} reset to flipped-card`)
     }
   })
   spookId = e.currentTarget.id
@@ -322,4 +328,75 @@ function toggleSpooked(span) {
 function playScarySound() {
   var sound = new Audio("/Users/drubles/Development/code/mod3/MySpooks/MySpooks-FrontEnd/src/scream.wav")
   sound.play()
+}
+
+// rank by most scares
+function findMostScares(){
+  let mostScaresArray = []
+  scareBtns = document.querySelectorAll('.number-of-scares')
+  scareBtns.forEach( button => {
+    let monsterHash = {}
+    monsterHash["monsterId"] = button.id
+    monsterHash["scareCount"] = button.innerText
+    mostScaresHash.push(monsterHash)
+  })
+  mostScaresHash.sort(function (a, b) {
+  return b.scareCount - a.scareCount;
+  });
+
+}
+
+function mostScaresButtonhandler(){
+  //call find most scares
+  let mostScaresArray = []
+  scareBtns = document.querySelectorAll('.number-of-scares')
+  scareBtns.forEach( button => {
+    let monsterHash = {}
+    monsterHash["monsterName"] = button.parentElement.parentElement.parentElement.parentElement.querySelector('h3').innerText
+    monsterHash["scareCount"] = button.innerText
+    mostScaresArray.push(monsterHash)
+  })
+  mostScaresArray.sort(function (a, b) {
+  return b.scareCount - a.scareCount;
+  });
+  //populate button dropdown with ranked monsters
+  let mostScaresDropdown = document.querySelector("#most-scares-parent-div")
+  mostScaresDropdown.innerHTML = ""
+  let scareScore = 1
+  for (hash of mostScaresArray){
+    let a = document.createElement('a')
+    a.className = "dropdown-item"
+    mostScaresDropdown.appendChild(a)
+    a.innerText = `${scareScore}. ${hash["monsterName"]} - ${hash["scareCount"]} scares`
+    scareScore += 1
+    // console.log(hash)
+  }
+}
+
+function mostFrightsButtonHandler(){
+  let mostFrightsArray = []
+  frightBtns = document.querySelectorAll('.times-frightened')
+  frightBtns.forEach( button => {
+    let monsterHash = {}
+    monsterHash["monsterName"] = button.parentElement.parentElement.parentElement.parentElement.querySelector('h3').innerText
+    monsterHash["frightCount"] = button.innerText
+    mostFrightsArray.push(monsterHash)
+
+  })
+
+  mostFrightsArray.sort(function (a, b) {
+  return b.frightCount - a.frightCount;
+  });
+  console.log(mostFrightsArray)
+  //populate button dropdown with ranked monsters
+  let mostFrightsDropdown = document.querySelector("#most-frights-parent-div")
+  mostFrightsDropdown.innerHTML = ""
+  let scareScore = 1
+  for (hash of mostFrightsArray){
+    let a = document.createElement('a')
+    a.className = "dropdown-item"
+    mostFrightsDropdown.appendChild(a)
+    a.innerText = `${hash["monsterName"]} - ${hash["frightCount"]} frights`
+    scareScore += 1
+  }
 }
