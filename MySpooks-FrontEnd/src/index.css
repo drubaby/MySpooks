@@ -38,6 +38,17 @@ body {
   box-shadow: 3px 4px rgb(255, 162, 22);
 }
 
+.flipped-card button{
+  position: relative;
+    top: 85px;
+    left: 1px;
+}
+
+.flipped-card h3{
+  position: relative;
+  top: 40px;
+}
+
 .flip-btn {
   padding: 10%
 }

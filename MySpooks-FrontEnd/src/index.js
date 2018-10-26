@@ -233,6 +233,7 @@ function render(monster) {
   let flipBtn = document.createElement("button")
   flipBtn.id = monster.id
   flipBtn.innerText = "Flip"
+  flipBtn.className = "btn btn-warning"
   flipBtn.addEventListener('click', flipBtnHandler)
   flipBtnDiv.appendChild(flipBtn)
   monsterCardDiv.appendChild(flipBtnDiv)
