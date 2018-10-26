@@ -349,7 +349,7 @@ function findMostScares(){
 function mostScaresButtonhandler(){
   //call find most scares
   let mostScaresArray = []
-  scareBtns = document.querySelectorAll('.number-of-scares')
+  let scareBtns = document.querySelectorAll('.number-of-scares')
   scareBtns.forEach( button => {
     let monsterHash = {}
     monsterHash["monsterName"] = button.parentElement.parentElement.parentElement.parentElement.querySelector('h3').innerText
@@ -375,7 +375,7 @@ function mostScaresButtonhandler(){
 
 function mostFrightsButtonHandler(){
   let mostFrightsArray = []
-  frightBtns = document.querySelectorAll('.times-frightened')
+  let frightBtns = document.querySelectorAll('.times-frightened')
   frightBtns.forEach( button => {
     let monsterHash = {}
     monsterHash["monsterName"] = button.parentElement.parentElement.parentElement.parentElement.querySelector('h3').innerText
@@ -387,7 +387,6 @@ function mostFrightsButtonHandler(){
   mostFrightsArray.sort(function (a, b) {
   return b.frightCount - a.frightCount;
   });
-  console.log(mostFrightsArray)
   //populate button dropdown with ranked monsters
   let mostFrightsDropdown = document.querySelector("#most-frights-parent-div")
   mostFrightsDropdown.innerHTML = ""
@@ -399,4 +398,26 @@ function mostFrightsButtonHandler(){
     a.innerText = `${hash["monsterName"]} - ${hash["frightCount"]} frights`
     scareScore += 1
   }
+}
+
+function findScareFrightHash() {
+  let monsterRatios = []
+  monsterCards.forEach(card => {
+    let ratioHash = {}
+    let name = card.querySelector('h3').innerText
+    let scareCount = card.querySelector('.number-of-scares').innerText
+    let frightCount = card.querySelector('.times-frightened').innerText
+    ratioHash["name"] = card.querySelector('h3').innerText
+    ratioHash["scare_count"] = parseInt(scareCount)
+    ratioHash["fright_count"] = parseInt(frightCount)
+    monsterRatios.push(ratioHash)
+  })
+  return monsterRatios
+  // name: "Giant Spider", scare_count: 15, fright_count: 7}
+
+  //rank each monster by scares per frights
+  // for each monster divide scares by frights
+  //if frights == 0 [aka infinity] order those first
+  //if scares == 0 it will return NaN order those last (least scary)
+
 }

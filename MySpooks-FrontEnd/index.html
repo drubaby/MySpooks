@@ -10,36 +10,31 @@
   <body>
     <nav class="navbar fixed-top navbar-dark bg-dark navbar-header">
   <!-- Navbar content -->
-  <div class="pull-right">
         <a class="navbar-brand" href="#">
           <img src="src/logo.png" width="300" height="62" alt="">
         </a>
 <!-- Dropdown for most scares button -->
-<ul class="nav navbar-nav justify-content-end">
-<li class="nav-item">
+
         <div class="dropdown navbar-right">
         <button class="btn btn-secondary dropdown-toggle navbar-btn" type="button" id="mostScaresButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Most Scares Leaderboard
         </button>
         <div class="dropdown-menu" id="most-scares-parent-div" aria-labelledby="dropdownMenuButton">
         </div>
       </div>
-    </li>
+
 <!-- Dropdown for most frightened button -->
-<li class="nav-item">
+
       <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle pull-right" type="button" id="mostFrightsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Most Frightened Loserboard
       </button>
       <div class="dropdown-menu" id="most-frights-parent-div" aria-labelledby="dropdownMenuButton">
       </div>
     </div>
-</li>
+
 <!-- Add a monster button -->
-<li class="nav-item">
+
         <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">Add a Monster</button>
       </button>
-</li>
-    </ul>
-  </div>
   </nav>
 <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
